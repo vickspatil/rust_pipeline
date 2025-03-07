@@ -22,12 +22,16 @@ jobs:
 
     - name: Format check
       run: cargo fmt -- --check
+      working-directory: .  # Explicitly ensure it's in the correct directory
 
     - name: Lint with Clippy
       run: cargo clippy -- -D warnings
+      working-directory: .
 
     - name: Run tests
       run: cargo test --verbose
+      working-directory: .
 
     - name: Build release
       run: cargo build --release
+      working-directory: .
